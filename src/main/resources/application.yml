@@ -1,0 +1,26 @@
+server:
+  port: 8888
+
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&serverTimezone=UTC&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1233
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 5
+      idle-timeout: 30000
+
+mybatis:
+  type-aliases-package: com.nowcoder.community.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
+
+
+logging.level.com.nowcoder.community: debug
