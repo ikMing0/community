@@ -1,5 +1,9 @@
 server:
   port: 8888
+  servlet:
+    context-path: /community
+community.path.domain: http://localhost:8888
+
 
 spring:
   thymeleaf:
@@ -14,13 +18,26 @@ spring:
       maximum-pool-size: 15
       minimum-idle: 5
       idle-timeout: 30000
+#发送邮件的配置
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 3014077530@qq.com
+    password: dfycahmiyruydcde
+    protocol: smtps
+spring.mail.properties.mail.smtp.ssl.enable: true
+
 
 mybatis:
   type-aliases-package: com.nowcoder.community.entity
   mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
-    use-generated-keys: true
-
+mybatis.configuration.useGeneratedKeys: true
 
 logging.level.com.nowcoder.community: debug
+
+oss:
+  accessKey: Kot8x6vZo61EPUrtnZrVlxf3ESl9k50mcTl0jtgb
+  secretKey: g3_aQSnRFMhLG8JQRd-JFLb1MX3QQrSKlxjq7nyr
+  bucket: czm-community

@@ -1,10 +1,14 @@
 package com.nowcoder.community;
 
 import com.nowcoder.community.dao.DiscussPostMapper;
+import com.nowcoder.community.dao.LoginTicketMapper;
 import com.nowcoder.community.dao.UserMapper;
 import com.nowcoder.community.entity.DiscussPost;
+import com.nowcoder.community.entity.LoginTicket;
 import com.nowcoder.community.entity.User;
 import com.nowcoder.community.service.DiscussPostService;
+import com.nowcoder.community.util.CommunityUtil;
+import com.nowcoder.community.util.MailClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -16,6 +20,7 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import java.util.Date;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -70,4 +75,35 @@ public class CommunityApplicationTests {
         logger.warn("warn log");
     }
 
+    @Autowired
+    private MailClient mailClient;
+    @Test
+    public void mailTest(){
+        mailClient.sendMail("2321271246@qq.com","你好啊","这里是内容");
+    }
+
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
+    @Test
+    public void testLoginTicketMapper(){
+        //插入
+//        LoginTicket loginTicket = new LoginTicket();
+//        loginTicket.setExpired(new Date(System.currentTimeMillis() + 1000 * 60 * 10));
+//        loginTicket.setStatus(0);
+//        loginTicket.setUserId(101);
+//        loginTicket.setTicket("abc");
+//        loginTicketMapper.insertLoginTicket(loginTicket);
+
+        //查询
+//        LoginTicket loginTicket = loginTicketMapper.selectByTicket("abc");
+//        System.out.println(loginTicket);
+
+        //更改
+        loginTicketMapper.updateStatus("abc",1);
+    }
+
+    @Test
+    public void md5test(){
+        System.out.println(CommunityUtil.md5("123960ad"));
+    }
 }

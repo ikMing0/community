@@ -26,7 +26,7 @@
         where username = #{username}
     </select>
 
-    <insert id="insertUser">
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
         insert into user (<include refid="insertFields"></include>)
         values (#{username},#{password},#{salt},#{email},#{type},#{status},#{activationCode},#{headerUrl},#{createTime})
     </insert>
@@ -35,11 +35,11 @@
         update user set status = #{status} where id = #{id}
     </update>
     <update id="updateHeader">
-        update user set status = #{headerUrl} where id = #{id}
+        update user set header_url  = #{headerUrl} where id = #{id}
     </update>
 
     <update id="updatePassword">
-        update user set status = #{password} where id = #{id}
+        update user set password = #{password} where id = #{id}
     </update>
 
 </mapper>
