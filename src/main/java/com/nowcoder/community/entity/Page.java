@@ -30,7 +30,7 @@ public class Page {
     }
 
     public void setRows(Integer rows) {
-        if (rows >=1 ){
+        if (rows >=0 ){
             this.rows = rows;
         }
     }

@@ -1,6 +1,8 @@
 package com.nowcoder.community.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 import java.io.Serializable;
@@ -12,18 +14,19 @@ import java.io.Serializable;
  * @since 2023-04-11 11:12:34
  */
 @Data
+@Getter
+@Setter
 public class LoginTicket implements Serializable {
-    private static final long serialVersionUID = -13006434012531319L;
+
+    private int id;
     
-    private Integer id;
-    
-    private Integer userId;
+    private int userId;
     
     private String ticket;
     /**
      * 0-有效; 1-无效;
      */
-    private Integer status;
+    private int status;
     
     private Date expired;
 

@@ -36,5 +36,7 @@ public class DiscussPost implements Serializable {
     private Integer commentCount;
     
     private double score;
+
+
 }
 

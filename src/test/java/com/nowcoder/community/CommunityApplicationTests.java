@@ -9,6 +9,8 @@ import com.nowcoder.community.entity.User;
 import com.nowcoder.community.service.DiscussPostService;
 import com.nowcoder.community.util.CommunityUtil;
 import com.nowcoder.community.util.MailClient;
+import com.nowcoder.community.util.SensitiveFilter;
+import javafx.scene.input.DataFormat;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -106,4 +108,21 @@ public class CommunityApplicationTests {
     public void md5test(){
         System.out.println(CommunityUtil.md5("123960ad"));
     }
+
+
+
+    @Test
+    public void testMapper(){
+        DiscussPost post = new DiscussPost();
+        post.setUserId(149);
+        post.setContent("哈哈");
+        post.setTitle("干嘛");
+        post.setStatus(0);
+        post.setType(0);
+        System.out.println(post);
+        System.out.println(discussPostMapper.insertDiscussPost(post));
+        System.out.println(post.getId());
+    }
+
+
 }
